@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from '@mui/material';
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+// import DataContextProvider from "./context/data.context";
+import SideBar from "./components/side-bar/side-bar";
+import AllJournals from "./components/all-journals/all-journals";
+
+const useStyles = makeStyles(theme => ({
+  AppWrapper: {
+    display: 'flex',
+
+  },
+}));
+
 
 function App() {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <DataContextProvider> */}
+        <Box className={classes.AppWrapper}>
+
+          <SideBar />
+          <AllJournals />
+
+        </Box>
+      {/* </DataContextProvider> */}
+    </>
+
   );
 }
 
