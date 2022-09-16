@@ -7,8 +7,6 @@
     min-height: 100px;
 }
 
-.ql-toolbar {
-    /* background: red; */
-    background: #006D77;
-    border-radius: 20px 20px 0px 0px;
+.ql-editor {
+    display: none;
 }

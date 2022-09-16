@@ -9,7 +9,6 @@ const useStyles = makeStyles(theme => ({
     OuterContainer: {
         padding: '55px 60px',
         width: '341px',
-        border: '1px solid red',
     },
     profileBox: {
         display: 'flex',

@@ -1,0 +1,98 @@
+.outerContainer {
+    width: 1140px;
+    padding: 50px;
+}
+
+.upperMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.timeAndDate>h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #5B5B5B;
+    margin: 0px;
+    padding: 0px;
+
+
+}
+
+.timeAndDate>h3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #84CCC5;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 10px;
+
+
+
+
+}
+
+.firstPart {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.secondPart {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.firstPartOptions {
+    width: 1042px;
+    height: 79px;
+    left: 890px;
+    top: 173px;
+
+    /* background: #006D77; */
+    border-radius: 20px 20px 0px 0px;
+}
+
+.ql-editor {
+    display: none;
+}
+
+.inputHeading {
+    margin-top: 25px;
+    width: 1042px;
+    height: 79px;
+
+    border: 3px solid #E29578;
+    border-radius: 20px;
+
+    font-size: 24px;
+    padding: 0px 25px;
+}
+
+.textArea {
+    margin-top: 25px;
+    font-size: 18px;
+
+    width: 1042px;
+    height: 542px;
+
+    border: 2px solid #E29578;
+    border-radius: 20px;
+
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, white 10px, transparent 10px),
+        linear-gradient(to left, white 10px, transparent 10px),
+        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    line-height: 31px;
+    /* padding: 50px 84px; */
+
+}

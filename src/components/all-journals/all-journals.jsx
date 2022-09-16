@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import { TextField, InputAdornment } from "@material-ui/core";
 import { Button } from '@mui/material';
+import { useContext } from "react";
+import { DataContext } from '../../App';
 
 
 
@@ -13,7 +15,6 @@ const useStyles = makeStyles(theme => ({
     OuterContainer: {
         padding: '55px 60px',
         width: '341px',
-        border: '1px solid red',
         display: 'flex',
         flexDirection: 'column',
         background: '#FFF2EE',
@@ -82,6 +83,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         alignItems: 'center',
         gap: '30px',
+        marginBottom: '50px'
 
     },
     journalTime: {
@@ -144,6 +146,12 @@ function AllJournals() {
 
     const classes = useStyles();
 
+    let dataFromAPI = useContext(DataContext);
+    let dataFromAPIObject = dataFromAPI['data']
+    console.log(dataFromAPI)
+    // dataFromAPI = JSON.parse(dataFromAPI);
+
+
     return (
         <>
             <Box className={classes.OuterContainer}>
@@ -167,7 +175,41 @@ function AllJournals() {
                         <h3>see all</h3>
 
                     </Box>
-                    <Box className={classes.journalsBydate}>
+                    {
+                        dataFromAPIObject.map((value, index) => (
+                            // console.log(data[index])
+                            Object.keys(value).map((key1, index1) => {
+                                return (
+                                    <>
+                                        <Box className={classes.journalsBydate}>
+                                            <h1 className={classes.journalDate}>{key1}</h1>
+                                            {
+                                                Object.keys(value[key1]).map( (key2, index2) =>{
+                                                    return (
+                                                        <>
+                                                            <Box className={classes.journalDiv}>
+                                                                <h4 className={classes.journalTime}>{value[key1][index2]['time']}</h4>
+                                                                <Box className={classes.journalData}>
+                                                                    <h6>{value[key1][index2]['heading']}</h6>
+                                                                    <p>{value[key1][index2]['detail']}</p>
+                                                                </Box>
+
+                                                            </Box>
+
+                                                        </>
+                                                    )
+                                                })
+
+                                            }
+                                        </Box>
+                                    </>
+                                )
+
+                            })
+                        ))
+                    }
+
+                    {/* <Box className={classes.journalsBydate}>
                         <h1 className={classes.journalDate}>23 january, 2022</h1>
                         <Box className={classes.journalDiv}>
                             <h4 className={classes.journalTime}>10:00PM</h4>
@@ -190,19 +232,7 @@ function AllJournals() {
 
                         </Box>
 
-                    </Box>
-                    <Box className={classes.journalsBydate}>
-                        <h1 className={classes.journalDate}>23 january, 2022</h1>
-                        <Box className={classes.journalDiv}>
-                            <h4 className={classes.journalTime}>10:00PM</h4>
-                            <Box className={classes.journalData}>
-                                <h6>Today's dream</h6>
-                                <p>I was running away from a group of people ...</p>
-                            </Box>
-
-                        </Box>
-
-                    </Box>
+                    </Box> */}
                 </Box>
 
                 <Button className={classes.addButton} variant="contained">+</Button>
